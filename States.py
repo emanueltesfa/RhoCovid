@@ -12,16 +12,21 @@ class States:
         self.violentcrime = violentcrime
 
     # will compare two states objects names
-    def __gt__(self, state1, state2):
-        # if(state1.get_state())
-        print(state1.get_state())
-
-        return 1
+    def __gt__(self, state1):
+        if self.get_state() > state1.get_state():
+            print("state 1 bigger")
+            return 1
+        else:
+            print("state 2 bigger")
+            return 0
 
     # print state object as a string
 
-    def __st__(self, stateName):
-
+    def __str__(self):
+        print(f' State: {self.get_state()}, Capitol: {self.get_capitol()}, Region: {self.get_region()},'
+              f' House Seats: {self.get_houseseat()}, Population: {self.pop}, Covid Cases: {self.get_covcases()},'
+              f' Covid Deaths: {self.get_covdeaths()}, Vaccine Rates: {self.get_vacrates()},'
+              f' Median Income: {self.medincome}, Violent Crime: {self.get_violentcrime()}')
         return 0
 
     # get/set state
@@ -93,3 +98,7 @@ class States:
 
     def set_violentcrime(self, violentcrime):
         self.violentcrime = violentcrime
+
+    def getCFR(self):
+        #print(float(self.get_covdeaths())/float(self.get_covcases()))
+        return float(self.get_covdeaths())/float(self.get_covcases())
